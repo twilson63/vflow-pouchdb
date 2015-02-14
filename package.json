@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tom",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twilson63/vflow-pouchdb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twilson63/vflow-pouchdb/issues"
+  },
+  "homepage": "https://github.com/twilson63/vflow-pouchdb"
 }
