@@ -17,7 +17,9 @@ stream.changes({
   //console.log(key);
   if (key === 'user:create' 
     || key === 'session:create'
-    || key === 'user:created') {
+    || key === 'user:created'
+    || key === 'session:isactive'
+    || key === 'session:inactive') {
     return ee.emit(key, change.doc);
   }
   if (change.doc.actor && change.doc.actor.name === username) {
