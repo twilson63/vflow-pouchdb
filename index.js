@@ -3,7 +3,10 @@ ee = module.exports = (ee = global.ee) != null ? ee : new EventEmitter();
 
 var pouchdb = require('pouchdb');
 var stream = pouchdb(process.env.Vflow || 'vflow');
+var uuid = require('node-uuid');
+
 var username = null;
+var systemId = uuid.v4();
 
 stream.changes({
   include_docs: true,
@@ -22,14 +25,17 @@ stream.changes({
     || key === 'session:inactive') {
     return ee.emit(key, change.doc);
   }
-  if (change.doc.actor && change.doc.actor.name === username) {
+  if (change.doc.actor 
+    && change.doc.actor.name === username
+    && change.doc.systemId
+    && change.doc.systemId === systemId) {
     ee.emit(key, change.doc);
   }
 });
 
 // always create new event on stream
 ee.on('post', function(p) {
-  //console.log(p);
+  p.system = systemId;
   if (p.actor && p.actor.name) username = p.actor.name;
 
   stream.post(p);
