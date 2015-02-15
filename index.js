@@ -25,6 +25,10 @@ stream.changes({
     || key === 'session:inactive') {
     return ee.emit(key, change.doc);
   }
+  if (change.doc.verb === 'create' 
+    || change.doc.verb === 'update') {
+    return ee.emit(key, change.doc);
+  }
   if (change.doc.actor 
     && change.doc.actor.name === username
     && change.doc.systemId
