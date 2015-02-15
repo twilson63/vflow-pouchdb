@@ -1,6 +1,6 @@
 {
   "name": "vflow-pouchdb",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A flow abstraction for you pouchdb or couchdb write-stream database",
   "main": "index.js",
   "scripts": {
