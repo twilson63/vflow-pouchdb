@@ -35,7 +35,7 @@ stream.changes({
 
 // always create new event on stream
 ee.on('post', function(p) {
-  p.system = systemId;
+  p.systemId = systemId;
   if (p.actor && p.actor.name) username = p.actor.name;
 
   stream.post(p);
