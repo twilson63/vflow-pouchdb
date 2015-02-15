@@ -26,7 +26,8 @@ stream.changes({
     return ee.emit(key, change.doc);
   }
   if (change.doc.verb === 'create' 
-    || change.doc.verb === 'update') {
+    || change.doc.verb === 'update'
+    || change.doc.verb === 'remove') {
     return ee.emit(key, change.doc);
   }
   if (change.doc.actor 
